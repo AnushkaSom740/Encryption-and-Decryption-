@@ -22,4 +22,4 @@ The goal is to showcase **secure coding practices** and provide reusable example
 ---
 
 ## 🛠️ Technologies Used
-- **Python 3.x**
+- **LINUX**
