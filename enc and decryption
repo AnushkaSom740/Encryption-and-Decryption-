@@ -1,0 +1,31 @@
+analyst@e01c7fd1410c:~$ la
+-bash: la: command not found
+analyst@e01c7fd1410c:~$ la
+-bash: la: command not found
+analyst@e01c7fd1410c:~$ ls
+Q1.encrypted  README.txt  caesar
+analyst@e01c7fd1410c:~$ cat README.txt
+Hello,
+All of your data has been encrypted. To recover your data, you will need to solve a cipher. To get started look for a hidden file in the caesar subdirectory.
+analyst@e01c7fd1410c:~$ cd caesar
+analyst@e01c7fd1410c:~/caesar$ ls -a
+.  ..  .leftShift3
+analyst@e01c7fd1410c:~/caesar$ cat .leftShift3
+Lq rughu wr uhfryhu brxu ilohv brx zloo qhhg wr hqwhu wkh iroorzlqj frppdqg:
+
+rshqvvo dhv-256-fef -sengi2 -d -g -lq T1.hqfubswhg -rxw T1.uhfryhuhg -n hwwxeuxwh
+analyst@e01c7fd1410c:~/caesar$ cat .leftShift3 | tr "d-za-cD-ZA-C" "a-zA-Z"
+In order to recover your files you will need to enter the following command:
+
+openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+analyst@e01c7fd1410c:~/caesar$ In this case, the command tr "d-za-cD-ZA-C" "a-zA-Z" translates all the lowercase and uppercase letters in the alphabet back to their original position. The first character set, indicated by "d-za-cD-ZA-C", is translated to the second character set, which is "a-zA-Z".
+-bash: In: command not found
+analyst@e01c7fd1410c:~/caesar$ cd ~
+analyst@e01c7fd1410c:~$ openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+analyst@e01c7fd1410c:~$ In this instance, the openssl command reverses the encryption of the file with a secure symmetric cipher, as indicated by AES-256-CBC. The -pbkdf2 option is used to add extra security to the key, and -a indicates the desired encoding for the output. The -d indicates decrypting, while -in specifies the input file and -out specifies the output file. The -k specifies the password, which in this example is ettubrute.
+-bash: In: command not found
+analyst@e01c7fd1410c:~$ ls
+Q1.encrypted  Q1.recovered  README.txt  caesar
+analyst@e01c7fd1410c:~$ cat Q1.recovered
+If you are able to read this, then you have successfully decrypted the classic cipher text. You recovered the encryption key that was used to encrypt this file. Great work!
+analyst@e01c7fd1410c:~$ 
